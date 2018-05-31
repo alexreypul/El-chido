@@ -2,7 +2,7 @@ import { Component, ViewChild,  } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav, Platform  } from 'ionic-angular';
 import { UsersserviceProvider } from '../../providers/usersservice/usersservice';
 import * as firebase from 'firebase';
-import { InicialPage } from '../inicial/inicial';
+import { ChatPage } from '../chat/chat';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { NotesService } from '../../services/Notes.services';
@@ -55,8 +55,12 @@ export class CruzaPage {
 
       for (var key in data) {
           console.log(data[key].nombre);
-       
-          this.usus.push(data[key]);
+
+          if(this.usuarios.nombre == data[key].nombre){
+            
+          }else{
+            this.usus.push(data[key]);
+          }
       }
     });
     this.getMascota();
@@ -67,8 +71,16 @@ export class CruzaPage {
     });
   }
 
-  irChat(indice){
-      this.navCtrl.push(InicialPage,indice);
+  paramsChat = {
+    emisor: this.usuarios.nombre,
+    receptor: "jxzyel"
+  };
+  irChat(pos){
+      console.log(this.usus[pos].nombre);
+      console.log(this.usuarios.nombre);
+    this.paramsChat.receptor = this.usus[pos].nombre
+    this.navCtrl.push(ChatPage, this.paramsChat);
+      // this.navCtrl.push(InicialPage,{posi:pos});
   }
 
   ionViewDidLoad() {
