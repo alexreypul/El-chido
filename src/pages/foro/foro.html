@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            <ion-label (click)="eligeForo()">Foro de: {{categoriaElegida}}
+
+            </ion-label>
+        </ion-title>
+        <ion-input readonly="true" [(ngModel)]="usuario"></ion-input>
+    </ion-navbar>
+</ion-header>
+
+<ion-content #content padding id="content">
+    <!-- <ion-card *ngFor="let pub of pubs" (click)="muestarespuestas()"></ion-card>-->
+    <ion-card *ngFor="let pub of pubs;let pos =index" (click)="muestarespuestas(pub.id,pub.categoria)" style="border-radius: 10px">
+        <ion-card-header>
+            {{pub.usuario}} {{pub.dia}} {{pub.hora}}
+        </ion-card-header>
+        <ion-card-content>
+            {{pub.publicacion}}
+            <!-- <ion-buttons end>
+        <button ion-button icon-right (click)="calificar()">
+            <ion-icon name="md-star"></ion-icon>
+          </button>
+    </ion-buttons>
+    <img [src]="image" *ngIf="image" /> 
+{{pub.image}}
+<ion-row>
+<ion-col>
+  <button ion-button icon-left clear small (click)="muestarespuestas(pub.publicacion)">
+    <ion-icon name=""></ion-icon>
+    <div>prueba</div>
+  </button>
+</ion-col>
+</ion-row>-->
+        </ion-card-content>
+    </ion-card>
+    <div id="Contentend"></div>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-input placeholder="Escribe algo..." [(ngModel)]="pub"></ion-input>
+        <ion-buttons end>
+            <button ion-button icon-right (click)="sendPublicaciones()">
+      <ion-icon name="send">
+      </ion-icon>
+    </button>
+        </ion-buttons>
+    </ion-toolbar>
+    <!-- <ion-toolbar>
+  <ion-segment [(ngModel)]="categoria">
+    <ion-segment-button value="alimentacion">
+      Alimentacion
+    </ion-segment-button>
+    <ion-segment-button value="cuidados">
+      Cuidados
+    </ion-segment-button>
+    <ion-segment-button value="vacunas">
+      Vacunas
+    </ion-segment-button>
+  </ion-segment>
+</ion-toolbar>
+-->
+</ion-footer>

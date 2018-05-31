@@ -1,0 +1,52 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Historial Médico</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-right (click)="cerrarSesionUser()" *ngIf="usuariodata.tipo_usuario=='V'">
+                <ion-icon name="exit">  </ion-icon>
+                Cerrar sesión
+            </button>
+            <button ion-button icon-right (click)="darAltaVeterinario()" *ngIf="usuariodata.tipo_usuario=='U'">
+                <ion-icon name="md-add-circle"> alta</ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="pantalla" color="primary">
+            <ion-segment-button value="citas">
+                <ion-icon name="calendar"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="vacunas">
+                <ion-icon name="md-medkit"></ion-icon>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div *ngIf="pantalla=='citas'">
+        <ion-card *ngFor="let c of citas" (click)="irDetallesCita(c)">
+            <ion-card-header>
+                {{c.data.tipo}}
+            </ion-card-header>
+            <ion-card-content>
+                Fecha: {{c.data.fecha}}
+                <br/> Hora: {{c.data.hora}}
+                <br/> Motivo: {{c.data.motivo}}
+            </ion-card-content>
+        </ion-card>
+    </div>
+    <div *ngIf="pantalla=='vacunas'">
+        <ion-card *ngFor="let c of vacunas" (click)="irDetallesCita(c)">
+            <ion-card-header>
+                {{c.data.tipo}}
+            </ion-card-header>
+            <ion-card-content>
+                Fecha: {{c.data.fecha}}
+                <br/> Hora: {{c.data.hora}}
+                <br/> Motivo: {{c.data.motivo}}
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

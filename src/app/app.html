@@ -1,0 +1,61 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-navbar color="primary">
+
+            <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                </button>
+            <ion-title>Menú</ion-title>
+
+            <ion-buttons end>
+                <button ion-button>
+                        <ion-icon name="md-exit"></ion-icon>
+                    </button>
+            </ion-buttons>
+        </ion-navbar>
+    </ion-header>
+    <ion-content>
+        <!-- para agregar contenido scrolable-->
+        <ion-list menuClose>
+            <!--Hace que se cierre el menu despues de oprimir un boton-->
+            <button ion-item (click)="irPerfil()">
+                    <!--Funcion para ir a la page Perfil-->
+                    <ion-icon item-left color="primary" name="md-person"></ion-icon>
+                    Perfil
+                </button>
+            <button ion-item (click)="irChat()">
+                    <ion-icon item-left color="primary" name="md-chatbubbles"></ion-icon>
+                    Chat
+                </button>
+            <button ion-item (click)="irForo()">
+                    <ion-icon item-left color="primary" name="md-help"></ion-icon>
+                    Foro
+                </button>
+            <button ion-item>
+                    <!--Funcion para ir a la page Perfil-->
+                    <ion-icon item-left color="primary" name="md-paw"></ion-icon>
+                    Mascotas
+                </button>
+            <button ion-item (click)="irCruza()">  
+                    <!--Funcion para ir a la page cruza-->
+                    <ion-icon item-left color="primary" name="logo-github"></ion-icon>
+                    Cruza
+                </button>
+            <button ion-item (click)="irCartilla()">
+                    <!--Funcion para ir a la page Perfil-->
+                    <ion-icon item-left color="primary" name="md-medkit"></ion-icon>
+                    Cartilla
+                </button>
+            <button ion-item (click)="irMapa()">
+                    <!--Funcion para ir a la page Mapa-->
+                    <ion-icon item-left color="primary" name="pin"></ion-icon>
+                    Ubicación
+                </button>
+            <button ion-item (click)="cerrarSesionUser()">
+                    <ion-icon item-left color="danger" name="md-exit"></ion-icon>
+                    Cerrar sesión
+                </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,47 @@
+<ion-content padding class="fondo">
+       
+   <ion-row class="logo-row">
+        <ion-col></ion-col>
+        <ion-col width-67>
+            <img src="assets/imgs/xoliletrasLogo.png" class="logo" />
+            
+        </ion-col>
+        <ion-col></ion-col>
+        
+    </ion-row>
+     
+<br>
+
+    <div>
+        
+            <ion-item>
+                <ion-label floating>Correo electrónico</ion-label>
+                <ion-input type="email" [(ngModel)]="email" name="email" required="required"></ion-input>
+            </ion-item>
+<br>
+
+            <ion-item>
+                <ion-label floating>Contraseña</ion-label>
+                <ion-input type="password" [(ngModel)]="password" name="password" required="required"></ion-input>
+            </ion-item>
+
+            <div padding text-center>
+                <button ion-button color="danger" (click)="submitLogin()" class="login-button">
+                    Iniciar sesión
+                </button>
+                <!-- Show dead button if form is not filled - *ngIf="email && password "
+                <button *ngIf="!email && !password" ion-button color="danger" clear  class="login-button">Iniciar sesión</button>
+                -->
+            </div>
+        
+    </div>
+
+
+    <div padding text-center>
+        <button ion-button color="light"  clear (click)="olvidoContrasena()" class="login-button" round>¿Olvidó su contraseña?</button>
+    </div>
+    <div padding text-center>
+        <button ion-button  color="light" clear (click)="redirectToSignup()" class="login-button">Crear nueva cuenta</button>
+    </div>
+
+</ion-content>
